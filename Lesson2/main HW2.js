@@ -44,7 +44,9 @@ console.log(sum);
 
 
 //Найти минимальное число которое больше 300 и нацело делиться на 17
-for (let i = 301; i <= (300 * 17); i++) {
+let minNum = 300;
+let divider = 17;
+for (let i = minNum; i <= (minNum * divider); i++) {
     if (i % 17 == 0) {
         console.log(i);
         break;
@@ -53,13 +55,13 @@ for (let i = 301; i <= (300 * 17); i++) {
 
 
 //Заданы две переменные для двух целых чисел, найти максимальное общее значение которое нацело делит два заданных числа.
-let a = 80;
-let b = 15;
-while ( a != 0 && b != 0) {
-    if (a > b) {
-        a = a % b;
+let num1 = 80;
+let num2 = 15;
+while ( num1 != 0 && num2 != 0) {
+    if (num1 > num2) {
+        num1 = num1 % num2;
     } else {
-        b = b % a;
+        num2 = num2 % num1;
     }
 }
-console.log(a + b);
+console.log(num1 + num2);
