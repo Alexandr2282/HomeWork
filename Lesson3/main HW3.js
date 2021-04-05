@@ -106,7 +106,7 @@ function getFactorial(factorial) {
     for (let i = factorial - 1; i > 0; i--) {
         res *= i;
     }
-    console.log(res);
+    return res;
 }
 getFactorial(4);
 
@@ -126,26 +126,27 @@ function getFirstDivisorsNumber(num, numDividers) {
 getFirstDivisorsNumber(20000, 3);
 
 //Найти сумму цифр числа которые кратны двум
-function getSumDigitsDivisibleTwo(bigNum) {
-    let bigString = bigNum + "";
+function getSumDigitsDivisibleTwo(num) {
+    let str = num + "";
     let sum = 0;
-    for (i of bigString) {
+    for (i of str) {
         if (i % 2 == 0) {
             sum += +i;
         }
     }
-    console.log(sum);
+    return sum;
 }
 getSumDigitsDivisibleTwo(122344566788);
 
 //Найти минимальное число которое больше 300 и нацело делиться на 17
-function getMinDivisibleNumOf(minNum, divider) {
-    for (let i = minNum; i <= (minNum * divider); i++) {
+function getMinDivisibleNumOf(num, divider) {
+    for (let i = num; i <= (num * divider); i++) {
         if (i % divider == 0) {
-            console.log(i);
+            let minNum = i;
             break;
         }
     }
+    return minNum;
 }
 getMinDivisibleNumOf(300, 17);
 
@@ -159,7 +160,7 @@ function getMaxDivisorOfTwoNum(num1, num2) {
             num2 = num2 % num1;
         }
     }
-    console.log(num1 + num2);
+    return(num1 + num2);
 }
 getMaxDivisorOfTwoNum(120,15);
 
@@ -174,7 +175,7 @@ function getLineInReverse(str, index){
     return newStr;
 }
 let res = getLineInReverse("zxcvbnm");
-console.log(res);
+
 
 // Переменная содержит в себе число. Написать скрипт который посчитает факториал этого числа.
 function findFactorialOfNum(total) {
@@ -183,7 +184,7 @@ function findFactorialOfNum(total) {
     }
     return total;
 }
-console.log(findFactorialOfNum(6));
+findFactorialOfNum(6);
 
 //Дано число - вывести первые N делителей этого числа нацело. Рекурсия.
 function getFirstDivisorsNumber(num, numDividers, index) {
@@ -240,16 +241,21 @@ let mas1 =
     [1, 2, 3, 4, 5],
     [1, 2, 3, 4, 5]];
 
-function trans(mas1){
+function transMatrix(mas1){
+    if (mas1.length == 0) {
+        return 0;
+    }
     let newTransArr = [];
     for (let i = 0; i < mas1[0].length; i++){
         newTransArr[i] = [];
         for (let j = 0; j < mas1.length; j++){
             newTransArr[i][j] = mas1[j][i];
         }
-    }return newTransArr;
+    }
+    
+    return newTransArr;
 }
-console.log(trans(mas1));
+transMatrix(mas1);
 
 //Написать функцию, которая умножает две матрицы
 let mas2 = 
@@ -257,20 +263,27 @@ let mas2 =
     [3, 4, 5, 6, 7],
     [4, 5, 96, 7, 28]];
 
-function addArreys(mas1, mas2) {
-    let sumArrey = [];
+function multipliArreys(mas1, mas2) {
+    if (mas1.length == 0 || mas2.length == 0) {
+        return 0;
+    }
+    let multipliArrey = [];
     for (let i = 0; i < mas1.length; i++) {
-        sumArrey[i] = [];
+        multipliArrey[i] = [];
         for (let j = 0; j < mas1[0].length; j++) {
-            sumArrey[i][j] = mas1[i][j] * mas2[i][j];
+            multipliArrey[i][j] = mas1[i][j] * mas2[i][j];
         }
     }
-    return sumArrey;
+    return multipliArrey;
 }
-console.log(addArreys(mas1, mas2));
+multipliArreys(mas1, mas2);
+
 
 //Найти номер строки двумерного массива сумма которого является максимальной
 function strArrMaxSum(mas2) {
+    if (mas2.length == 0) {
+        return 0;
+    }
     let arrey = [];
     for (let i = 0; i < mas2.length; i++) {
         arrey[i] = [];
@@ -294,6 +307,9 @@ console.log(strArrMaxSum(mas2) + " строка массива имеет мак
 
 // Найти номер столбца двумерного массива сумма которого является максимальной
 function columnArrMaxSum(mas2) {
+    if (mas2.length == 0) {
+        return 0;
+    }
     let arrey = [];
     for (let i = 0; i < mas2[0].length; i++) {
         arrey[i] = [];
@@ -320,9 +336,11 @@ let mas3 =
     [[0, 5, 8, -7, -4],
     [-3, -4, -9, 5, 1],
     [0, -9, 0, 6, 0]];
-console.table(mas3);
 
 function delColumn(mas3){
+    if (mas3.length == 0) {
+        return 0;
+    }
     let newArr = [];
     for (let i = 0; i < mas3[0].length; i++){
         newArr[i] = [];
@@ -349,4 +367,4 @@ function delColumn(mas3){
     }
     return backArr;
 }
-console.table(delColumn(mas3));
+delColumn(mas3);
