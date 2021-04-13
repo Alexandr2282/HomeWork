@@ -1,0 +1,52 @@
+let ingredients = [
+    {
+        protein: 10,
+        carbohydrates: 12.3,
+        fats: 3.0,
+        kilocalories: 112,
+    },{
+        protein: 15,
+        carbohydrates: 10,
+        fats: 0.5,
+        kilocalories: 70,
+    }
+    ];
+let dishes = [{
+        title: "Название блюда 1",
+        gram: 350,
+        ingredients: [
+            {
+                ingredient: 0,
+                gram: 10,
+            },{
+                ingredient: 1,
+                gram: 75,
+            },
+        ],
+    },{
+        title: "Название блюда 2",
+        gram: 350,
+        ingredients: [
+            {
+                ingredient: 0,
+                gram: 30,
+            },{
+                ingredient: 1,
+                gram: 115,
+            },
+        ]
+    }
+];
+   
+for (let i = 0; i < dishes.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < dishes[i].ingredients.length; j++) {
+        let gram = dishes[i].ingredients[j].gram;
+        let index = dishes[i].ingredients[j].ingredient;
+        let protein = ingredients[index].protein;
+        let val = 100 / protein * gram;
+        sum += val;
+    }
+    
+    console.log(dishes[i].title + " - " + Math.round(sum));
+}
